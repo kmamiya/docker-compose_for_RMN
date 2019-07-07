@@ -19,7 +19,7 @@ this is build a docker-compose environment, and create a new Rails project on it
     - attention; THIS SETTING USE 'root' account of MariaDB
 1. `docker-compose run app bundle exec rake db:create`
 1. `docker-compose up`
-1. access to http://<docker-host>/ by the web browser.
+1. access to `http://<docker-host>/` by the web browser.
 
 ## Boot the already exist Rails project.
 
@@ -27,4 +27,4 @@ this is build a docker-compose environment, and create a new Rails project on it
 1. `docker-compose run app bundle install`
 1. `docker-compose run app bundle exec rake db:create`
 1. `docker-compose up`
-1. access to http://<docker-host>/ by the web browser.
+1. access to `http://<docker-host>/` by the web browser.
