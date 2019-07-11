@@ -14,7 +14,17 @@ RUN groupadd -g $USER_GROUP_ID $USER_NAME \
   \
   && wget https://nodejs.org/dist/v${NODEJS_VERSION}/node-v${NODEJS_VERSION}-linux-x64.tar.xz \
   && tar xfJ node-v${NODEJS_VERSION}-linux-x64.tar.xz -C /usr/local \
-  && rm node-v${NODEJS_VERSION}-linux-x64.tar.xz
+  && rm node-v${NODEJS_VERSION}-linux-x64.tar.xz \
+  && node --version
+
+RUN apt-get update \
+  && apt-get install apt-transport-https \
+  && bash -c 'wget -O - https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -' \
+  && bash -c 'echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list' \
+  && apt-get update \
+  && apt-get install yarn --no-install-recommends \
+  && apt-get clean \
+  && yarn --version
 
 VOLUME /mnt/${APP_NAME}
 VOLUME ${NODEJS_PATH}
