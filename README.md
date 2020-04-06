@@ -18,6 +18,7 @@ this is build a docker-compose environment, and create a new Rails project on it
     - set `<%= ENV.fetch('DB_HOST') %>` to `host`
     - attention; THIS SETTING USE 'root' account of MariaDB
 1. `docker-compose run app bundle exec rake db:create`
+1. (Rails 6 only; append `config.hosts << 'app'` to `config/application.rb`
 1. `docker-compose up`
 1. access to `http://<docker-host>/` by the web browser.
 
